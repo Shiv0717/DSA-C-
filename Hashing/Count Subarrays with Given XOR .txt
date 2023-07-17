@@ -1,0 +1,20 @@
+Count Subarrays with Given XOR
+
+ map<int,int>mp;
+    int count=0;
+    int xr=0;
+    for(int i=0;i<arr.size();i++)
+    {
+         xr ^= arr[i];
+        if(xr==x)
+        {
+            count++;
+        }
+        int temp = xr ^ x;
+        if(mp.find( temp )!=mp.end())
+        {
+            count+=mp[ temp ];
+        }
+        mp[xr]++;
+    }
+    return count;
